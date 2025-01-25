@@ -2,10 +2,13 @@ services:
   app_etl:
     pull_policy: build
     image: app_etl:latest
+    volumes:
+      - .:/app_etl
+    network_mode: service:postgres_service
     build:
       dockerfile: Dockerfile
-    ports:
-      - "8080:8080"
+    # ports:
+      # - "8080:8080"
     depends_on:
       postgres_service:
         condition: service_healthy
@@ -48,7 +51,3 @@ services:
     depends_on:
       postgres_service:
         condition: service_healthy
-
-networks:
-  app_etl:
-    driver: bridge
