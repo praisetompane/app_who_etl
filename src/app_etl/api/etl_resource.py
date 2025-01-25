@@ -47,7 +47,7 @@ def start() -> Response:
         return etl_ID
     inject etl_ID into ETL runner
     """
-    log(logging.INFO, "Handling ETL requesta")
+    log(logging.INFO, "Handling an ETL request")
     content_type = request.headers.get("Content-Type")
     if content_type == "application/json":
         etl_key = "etl_name"
