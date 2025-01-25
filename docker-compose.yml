@@ -7,11 +7,14 @@ services:
     network_mode: service:postgres_service
     build:
       dockerfile: Dockerfile
+    # if you want to edit oytside a devcontainer,uncomment the "ports" config below AND comment out "network_mode: service:postgres_service"
     # ports:
       # - "8080:8080"
     depends_on:
       postgres_service:
         condition: service_healthy
+    command:
+      python -m flask --app src/app_etl/app --debug run --host=0.0.0.0 --port=8080
 
   postgres_service:
     image: "postgres:latest"
