@@ -91,7 +91,7 @@ An API driven ETL program to extract data from Wworld Health Organization.
 ## development:
 - to run system in debug mode:
     ```shell
-    ./start_system_development.sh
+    ./start_system.sh
     ```
 - running in VSCode:
     - open the "Run and Debug" view:
