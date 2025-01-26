@@ -81,11 +81,7 @@ An API driven ETL program to extract data from Wworld Health Organization.
     ```shell
     ./utilities/curl/highest_rank/royal_flush.sh
     ```
-    ![end to end curl example](./docs/end_to_end_curl_example.png) <br>
-
-- If Postman requests can be found in `/utilities/postman/app_etl.postman_collection.json`.
-    ![end to end postman example](./docs/end_to_end_postman_example.png)
-    - Guide for how to import into Postman: https://learning.postman.com/docs/getting-started/importing-and-exporting/importing-data/
+    ![end to end curl example](./docs/malaria_annual_confirmed_cases.png) <br>
 
 
 ## development:
@@ -97,10 +93,10 @@ An API driven ETL program to extract data from Wworld Health Organization.
     - open the "Run and Debug" view:
     - click the green play button.
         - the server will inform you the host and port in the terminal output at the bottom.
-        - from here you debug like normal(i.e. add break points, step into code definitions, evaluate code snippets, etc)
+        - from here you debug like normal(i.e. add break points, step into code definitions, evaluate code snippets, etc) <br>
     ![start system output](./docs/vscode_debugging.png)
 ## git conventions:
-- **NB:** the master is locked and all changes must come through a Pull Request.
+- **NB:** the main is locked and all changes must come through a Pull Request.
 - commit messages:
     - provide concise commit messages that describe what you have done.
         ```shell
