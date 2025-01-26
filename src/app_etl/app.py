@@ -32,6 +32,7 @@ def create_app(test_config=None) -> Flask:
 
     return app
 
+
 if __name__ == "__main__":
     log(logging.INFO, "Starting up app_poker")
     app = create_app()
