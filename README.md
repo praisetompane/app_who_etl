@@ -86,14 +86,21 @@ An API driven ETL program to extract data from Wworld Health Organization.
 ## development:
 - to run system in debug mode:
     ```shell
-    ./start_system.sh
+        ./start_system.sh
     ```
 - running in VSCode:
-    - open the "Run and Debug" view:
-    - click the green play button.
-        - the server will inform you the host and port in the terminal output at the bottom.
-        - from here you debug like normal(i.e. add break points, step into code definitions, evaluate code snippets, etc) <br>
-    ![start system output](./docs/vscode_debugging.png)
+    - startup postgres:
+    ```shell
+        docker compose -f docker-compose.debug.yml up
+    ```
+    - open the "Run and Debug" view.
+    - click the green play button.<br>
+        ![start system output](./docs/vscode_debugging.png)
+    - allow debugging without frozen modules by clicking "Debug Anyway" once the app_etl is ready and the "Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation" is shown.
+        ![bypass frozen modueles](./docs/vscode_debugging_frozen.png)
+    - the server will inform you the host and port in the terminal output at the bottom.
+    - from here you debug like normal(i.e. add break points, step into code definitions, evaluate code snippets, etc) <br>
+
 ## git conventions:
 - **NB:** the main is locked and all changes must come through a Pull Request.
 - commit messages:
