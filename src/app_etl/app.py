@@ -3,7 +3,7 @@ import sys
 import os
 from logging import log
 from flask import Flask
-from app_etl.api.etl_resource import etl_api
+from src.app_etl.api.etl_resource import etl_api
 
 logging.basicConfig(stream=sys.stdout, level=logging.INFO)
 
