@@ -14,6 +14,7 @@ services:
       postgres_service:
         condition: service_healthy
     command:
+      # gunicorn --config gunicorn_config.py myapp:app
       python -m flask --app src/app_etl/app --debug run --host=0.0.0.0 --port=8080
 
   postgres_service:
