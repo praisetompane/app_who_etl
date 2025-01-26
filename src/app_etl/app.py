@@ -36,4 +36,3 @@ if __name__ == "__main__":
     log(logging.INFO, "Starting up app_poker")
     app = create_app()
     app.run()
-

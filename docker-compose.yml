@@ -2,13 +2,19 @@ services:
   app_etl:
     pull_policy: build
     image: app_etl:latest
+    volumes:
+      - .:/app_etl
+    network_mode: service:postgres_service
     build:
       dockerfile: Dockerfile
-    ports:
-      - "8080:8080"
+    # if you want to edit oytside a devcontainer,uncomment the "ports" config below AND comment out "network_mode: service:postgres_service"
+    # ports:
+      # - "8080:8080"
     depends_on:
       postgres_service:
         condition: service_healthy
+    command:
+      python -m flask --app src/app_etl/app --debug run --host=0.0.0.0 --port=8080
 
   postgres_service:
     image: "postgres:latest"
@@ -48,7 +54,3 @@ services:
     depends_on:
       postgres_service:
         condition: service_healthy
-
-networks:
-  app_etl:
-    driver: bridge
