@@ -1,6 +1,6 @@
-from app_etl.etl.etl_interface import ETLInterface
-from app_etl.gateway.global_health_data import retrieve_indicator_data
-from app_etl.repository.malaria_annual_confirmed_cases_repository import (
+from src.app_etl.etl.etl_interface import ETLInterface
+from src.app_etl.gateway.global_health_data import retrieve_indicator_data
+from src.app_etl.repository.malaria_annual_confirmed_cases_repository import (
     MalariaAnnualConfirmedCasesRepository,
 )
 

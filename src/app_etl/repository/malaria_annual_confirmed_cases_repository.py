@@ -3,9 +3,9 @@ from logging import log
 
 from sqlalchemy import insert, select
 
-from app_etl.repository.postgres.connection import PostgresConnection
-from app_etl.repository.schema.malaria import Malaria
-from app_etl.repository.schema.source_data import SourceData
+from src.app_etl.repository.postgres.connection import PostgresConnection
+from src.app_etl.repository.schema.malaria import Malaria
+from src.app_etl.repository.schema.source_data import SourceData
 
 
 class MalariaAnnualConfirmedCasesRepository:

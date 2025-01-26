@@ -4,17 +4,17 @@ from logging import log
 from datetime import datetime
 from flask import Blueprint, Response, request, make_response
 
-from app_etl.etl.malaria_annual_confirmed_cases_etl import (
+from src.app_etl.etl.malaria_annual_confirmed_cases_etl import (
     MalariaAnnualConfirmedCasesETL,
 )
-from app_etl.etl.runner import ETLRunner
-from app_etl.repository.malaria_annual_confirmed_cases_repository import (
+from src.app_etl.etl.runner import ETLRunner
+from src.app_etl.repository.malaria_annual_confirmed_cases_repository import (
     MalariaAnnualConfirmedCasesRepository,
 )
 
-from app_etl.repository.etl_repository import ETLRepository
-from app_etl.repository.postgres.connection import PostgresConnection
-from app_etl.repository.postgres.postgres_configuration import PostgresConfiguration
+from src.app_etl.repository.etl_repository import ETLRepository
+from src.app_etl.repository.postgres.connection import PostgresConnection
+from src.app_etl.repository.postgres.postgres_configuration import PostgresConfiguration
 from logging import log
 
 logging.basicConfig(stream=sys.stdout, level=logging.INFO)
