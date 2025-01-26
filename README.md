@@ -79,10 +79,9 @@ An API driven ETL program to extract data from Wworld Health Organization.
 - The curl request used can be found in `utilities/curl/`.
     - example:
     ```shell
-    ./utilities/curl/highest_rank/royal_flush.sh
+    ./utilities/curl/malaria/malaria_annual_confirmed_cases.sh
     ```
     ![end to end curl example](./docs/malaria_annual_confirmed_cases.png) <br>
-
 
 ## development:
 - to run system in debug mode:

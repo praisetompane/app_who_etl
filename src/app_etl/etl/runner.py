@@ -1,4 +1,4 @@
-from app_etl.etl.etl_interface import ETLInterface
+from src.app_etl.etl.etl_interface import ETLInterface
 import logging
 from logging import log
 from datetime import datetime

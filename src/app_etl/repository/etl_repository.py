@@ -3,8 +3,8 @@ from logging import log
 
 from sqlalchemy import insert, update
 
-from app_etl.repository.postgres.connection import PostgresConnection
-from app_etl.repository.schema.etl import ETL
+from src.app_etl.repository.postgres.connection import PostgresConnection
+from src.app_etl.repository.schema.etl import ETL
 
 
 class ETLRepository:

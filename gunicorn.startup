@@ -1,0 +1,13 @@
+-- works
+    gunicorn --config gunicorn_config.py myapp:app 
+    curl --location 'http://localhost:8080/'
+
+
+-- does not work: not starting up
+    gunicorn --config gunicorn_config.py "src.app_etl.app:create_app()"
+
+-- does not work: not starting up
+    gunicorn --config gunicorn_config.py wsgi:app   
+
+-- does not work: not starting up
+    gunicorn --config gunicorn_config.py "src.app_etl.app:app"  
