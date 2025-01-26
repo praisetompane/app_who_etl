@@ -86,10 +86,14 @@ An API driven ETL program to extract data from Wworld Health Organization.
 ## development:
 - to run system in debug mode:
     ```shell
-    ./start_system.sh
+        ./start_system.sh
     ```
 - running in VSCode:
-    - open the "Run and Debug" view:
+    - startup postgres:
+    ```shell
+        docker compose -f docker-compose.debug.yml up
+    ```
+    - open the "Run and Debug" view.
     - click the green play button.
         - the server will inform you the host and port in the terminal output at the bottom.
         - from here you debug like normal(i.e. add break points, step into code definitions, evaluate code snippets, etc) <br>
