@@ -3,6 +3,7 @@ import sys
 from logging import log
 from datetime import datetime
 from flask import Blueprint, Response, request, make_response
+from dotenv import dotenv_values
 
 from src.app_etl.etl.malaria_annual_confirmed_cases_etl import (
     MalariaAnnualConfirmedCasesETL,
@@ -19,9 +20,15 @@ from logging import log
 
 logging.basicConfig(stream=sys.stdout, level=logging.INFO)
 
-# TODO: inject this into container environment on startup when the app is Dockerized
+config = dotenv_values(".env")
+
+
 postgres_config = PostgresConfiguration(
-    "app_etl", "postgres", "postgres_service", "5432", "app_etl"
+    config["POSTGRES_SERVICE"],
+    config["POSTGRES_PORT"],
+    config["POSTGRES_DB"],
+    config["POSTGRES_USER"],
+    config["POSTGRES_PASSWORD"],
 )
 
 postgres_connection = PostgresConnection(postgres_config)
