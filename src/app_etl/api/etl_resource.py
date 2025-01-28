@@ -24,7 +24,7 @@ config = dotenv_values(".env")
 
 
 postgres_config = PostgresConfiguration(
-    config["POSTGRES_SERVICE"],
+    config["POSTGRES_HOST"],
     config["POSTGRES_PORT"],
     config["POSTGRES_DB"],
     config["POSTGRES_USER"],
