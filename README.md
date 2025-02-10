@@ -46,53 +46,44 @@ An API driven ETL program to extract data from World Health Organization.
     - [Developing inside a Container](https://code.visualstudio.com/docs/devcontainers/containers)
 
 ## Package Management:
-**NB**: Only required if you choose to not use dev containers.
-- Install [Pipenv](https://pypi.org/project/pipenv/)
+- ### For non devcontainers usage:
+    - Install [Pipenv](https://pypi.org/project/pipenv/)
 
-- Install packages into local environment using pipenv:
-    ```shell
-    pipenv install
-    ```
+    - Install packages into local environment using pipenv:
+        ```shell
+        pipenv install
+        ```
+
 ## Run Program:
-- Start the system
-    ```shell
-    ./start_system.sh
-    ```
-- Run an ETL
-    ```shell
-    # specifically imports malaria_annual_confirmed_cases
-    ./utilities/curl/malaria/malaria_annual_confirmed_cases.sh
-    ```
+- ### For devcontainers usage:
+    - The system automatically start up as part of loading the project into an editor that supports devcontainers.
+- ### For non devcontainers usage:
+    - Uncomment the "ports" config AND comment out "network_mode: service:postgres_service" in [docker-compose](docker-compose.yml).
+    - Start the system
+        ```shell
+        ./start_system_development.sh
+        ```
+    - Run an ETL
+        ```shell
+        # specifically imports malaria_annual_confirmed_cases
+        ./utilities/curl/malaria/malaria_annual_confirmed_cases.sh
+        ```
 
 ## Testing:
 ### unit tests:
 - To run tests:
-    - activate environment
-    ```shell
-    pipenv shell
-    ```
-    - run tests
+
     ```shell
     pytest
     ```
 
 ### end to end tests:
-- Start the system
-    ```shell
-    ./start_system.sh
-    ```
-- The curl request used can be found in `utilities/curl/`.
-    - Example:
-        ```shell
-        ./utilities/curl/malaria/malaria_annual_confirmed_cases.sh
-        ```
-    - Output:
-        ![end to end curl example](./docs/malaria_annual_confirmed_cases.png) <br>
+- Unimplemented
 
 ## Development:
 - To run system in debug mode:
     ```shell
-    ./start_system.sh
+    ./start_system_development.sh
     ```
 - Running in VSCode:
     - Start the system in debubg mode.

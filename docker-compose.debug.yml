@@ -22,7 +22,3 @@ services:
     extends:
       file: docker-compose-common.yml
       service: postgres_service
-  app_x_database_flyway_migrations:
-    extends:
-      file: docker-compose-common.yml
-      service: app_x_database_flyway_migrations

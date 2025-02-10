@@ -20,20 +20,3 @@ services:
         interval: 10s
         timeout: 30s
         retries: 3
-  app_x_database_flyway_migrations:
-    container_name: db_flyway_migrations
-    environment:
-      - FLYWAY_USER=${POSTGRES_USER}
-      - FLYWAY_PASSWORD=${POSTGRES_PASSWORD}
-      - FLYWAY_URL=jdbc:postgresql://postgres_service:${POSTGRES_PORT}/${POSTGRES_DB}
-      - FLYWAY_SCHEMAS=flyway
-      - FLYWAY_GROUP=true
-    volumes:
-      - $PWD/src/app_etl/migrations:/flyway/sql
-    image: flyway/flyway:latest
-    command: -locations=filesystem:/flyway/sql -connectRetries=60 migrate
-    env_file:
-      - .env
-    depends_on:
-      postgres_service:
-        condition: service_healthy
