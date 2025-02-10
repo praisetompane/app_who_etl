@@ -1,3 +1,3 @@
-echo "Generating requirements file."
+echo "Generating Requirements File."
 pipenv requirements > requirements.txt
-echo "done"
+echo "Done Generating Requirements File"

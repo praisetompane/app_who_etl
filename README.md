@@ -61,44 +61,39 @@ An API driven ETL program to extract data from Wworld Health Organization.
         ```shell
         ./start_system_development.sh
         ```
-    - Run an ETL
+- Run an ETL
+    ```shell
+    # specifically imports malaria_annual_confirmed_cases
+    ./utilities/curl/malaria/malaria_annual_confirmed_cases.sh
+    ```
+
+## Testing:
+- ### For devcontainers usage:
+    - #### Run unit and integration tests:
         ```shell
-        # specifically imports malaria_annual_confirmed_cases
-        ./utilities/curl/malaria/malaria_annual_confirmed_cases.sh
+        pytest
         ```
-
-## testing:
-### unit tests:
-- to run tests:
-    - activate environment
-    ```shell
-    pipenv shell
-    ```
-    - run tests
-    ```shell
-    pytest
-    ```
-
+- ### For non devcontainers usage:
+    - #### Initialize a virtial environment
+        ```shell
+        pipenv shell
+        ```
+    - #### Run unit and integration tests:
+        ```shell
+        pytest
+        ```
 ### end to end tests:
 - Unimplemented
 
-## development:
-- to run system in debug mode:
-    ```shell
-    ./start_system_development.sh
-    ```
-- running in VSCode:
-    - startup postgres:
-    ```shell
-        docker compose -f docker-compose.debug.yml up
-    ```
-    - open the "Run and Debug" view.
-    - click the green play button.<br>
-        ![start system output](./docs/vscode_debugging.png)
-    - allow debugging without frozen modules by clicking "Debug Anyway" once the app_etl is ready and the "Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation" is shown.
+## Debugging:
+- Running in debug mode and debug with VSCode:
+    - Open the "Run and Debug" view.
+    - Click the green play button.<br>
+        ![start system output](./docs/vscode_debugging.png)<br>
+    - Allow debugging without frozen modules by clicking "Debug Anyway" once the debugger is installed and ready.
         ![bypass frozen modueles](./docs/vscode_debugging_frozen.png)
-    - the server will inform you the host and port in the terminal output at the bottom.
-    - from here you debug like normal(i.e. add break points, step into code definitions, evaluate code snippets, etc) <br>
+    - The server will inform you the host and port in the terminal output at the bottom.<br>
+    - From here you debug like normal(i.e. add break points, step into code definitions, evaluate code snippets, etc) <br>
 
 ## Database State Management:
 
