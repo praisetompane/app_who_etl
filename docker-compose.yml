@@ -7,7 +7,7 @@ services:
     build:
       dockerfile: Dockerfile
     network_mode: service:postgres_service
-    # if you want to edit oytside a devcontainer,uncomment the "ports" config below AND comment out "network_mode: service:postgres_service"
+    # if you want to edit outside a devcontainer,uncomment the "ports" config below AND comment out "network_mode: service:postgres_service"
     # ports:
       # - "8080:8080"
     depends_on:
@@ -17,7 +17,3 @@ services:
     extends:
       file: docker-compose-common.yml
       service: postgres_service
-  app_x_database_flyway_migrations:
-    extends:
-      file: docker-compose-common.yml
-      service: app_x_database_flyway_migrations
