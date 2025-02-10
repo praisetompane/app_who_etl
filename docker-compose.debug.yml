@@ -14,7 +14,7 @@ services:
       postgres_service:
         condition: service_healthy
     # This adds debugpy to the environment so you can debug the app
-    command: ["sh", "-c", "pip install debugpy -t /tmp && python /tmp/debugpy --wait-for-client --listen 0.0.0.0:5678 -m flask run"]
+    entrypoint: ["sh", "-c", "pip install debugpy -t /tmp && python /tmp/debugpy --wait-for-client --listen 0.0.0.0:5678 -m flask run"]
     environment:
       - FLASK_APP=src/app_etl/app.py
 
