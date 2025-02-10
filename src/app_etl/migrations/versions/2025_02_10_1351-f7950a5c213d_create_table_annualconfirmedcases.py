@@ -9,7 +9,7 @@ Create Date: 2025-02-10 13:51:24.494766
 from typing import Sequence, Union
 
 from alembic import op
-from sqlalchemy.sql import text
+import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
@@ -22,7 +22,7 @@ depends_on: Union[str, Sequence[str], None] = None
 def upgrade() -> None:
     conn = op.get_bind()
     conn.execute(
-        text(
+        sa.DDL(
             """
                 CREATE TABLE IF NOT EXISTS malaria.annualconfirmedcases (
                     id int4 NOT NULL GENERATED ALWAYS AS IDENTITY( INCREMENT BY 1 MINVALUE 1 MAXVALUE 2147483647 START 1 CACHE 1 NO CYCLE),
@@ -43,4 +43,4 @@ def upgrade() -> None:
 
 def downgrade() -> None:
     conn = op.get_bind()
-    conn.execute(text("DROP TABLE IF EXISTS malaria.annualconfirmedcases;"))
+    conn.execute(sa.DDL("DROP TABLE IF EXISTS malaria.annualconfirmedcases;"))
