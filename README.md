@@ -111,7 +111,14 @@ An API driven ETL program to extract data from Wworld Health Organization.
         - uses alembic's full revision scheme defined in alembic.ini
         - example: `2025_02_08_0825-98af2865f6fc_create_schema_etl`
     - Current database state can be queried with `SELECT * FROM public.alembic_version;`
-
+- To upgrade the database to latest migrations:
+    ```shell
+    alembic upgrade head
+    ```
+- To downgrade the database to the base state:
+    ```shell
+    alembic downgrade base
+    ```
 
 ## Git Conventions:
 - **NB:** the main is locked and all changes must come through a Pull Request.

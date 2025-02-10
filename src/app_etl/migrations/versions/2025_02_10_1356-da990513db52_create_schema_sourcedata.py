@@ -9,7 +9,7 @@ Create Date: 2025-02-10 13:56:12.302748
 from typing import Sequence, Union
 
 from alembic import op
-from sqlalchemy.sql import text
+import sqlalchemy as sa
 import sqlalchemy as sa
 
 sa.DDL
@@ -23,9 +23,9 @@ depends_on: Union[str, Sequence[str], None] = None
 
 def upgrade() -> None:
     conn = op.get_bind()
-    conn.execute(text("CREATE SCHEMA IF NOT EXISTS sourcedata;"))
+    conn.execute(sa.DDL("CREATE SCHEMA IF NOT EXISTS sourcedata;"))
 
 
 def downgrade() -> None:
     conn = op.get_bind()
-    conn.execute(text("DROP SCHEMA IF EXISTS sourcedata;"))
+    conn.execute(sa.DDL("DROP SCHEMA IF EXISTS sourcedata;"))
