@@ -24,7 +24,9 @@ An API driven ETL program to extract data from Wworld Health Organization.
         - gateway:
             - all external interaction objects(e.g. files, external APIs etc) live in this module.
         - model:
-            - the domain models for Poker live in this in this module.
+            - The domain models for Poker live in this in this module.
+        - repository:
+            - Data interactions(persitence and access) concerns live in this module.
         - app.py:
             entry point to startup the application
 - tests: test code lives in folder.
@@ -101,7 +103,17 @@ An API driven ETL program to extract data from Wworld Health Organization.
     - the server will inform you the host and port in the terminal output at the bottom.
     - from here you debug like normal(i.e. add break points, step into code definitions, evaluate code snippets, etc) <br>
 
-## git conventions:
+## Database State Management:
+
+- The database state (i.e. tables, stored procedures, indexes, etc) are managed using [Alembic](https://alembic.sqlalchemy.org/en/latest/).
+    - Migrations location: src/app_etl/migrations
+    - Migrations naming scheme: YYYY_MM_DD_HHMM_rev_nanme
+        - uses alembic's full revision scheme defined in alembic.ini
+        - example: `2025_02_08_0825-98af2865f6fc_create_schema_etl`
+    - Current database state can be queried with `SELECT * FROM public.alembic_version;`
+
+
+## Git Conventions:
 - **NB:** the main is locked and all changes must come through a Pull Request.
 - commit messages:
     - provide concise commit messages that describe what you have done.
