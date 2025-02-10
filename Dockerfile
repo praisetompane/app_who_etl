@@ -16,4 +16,6 @@ RUN python -m pip install -r requirements.txt
 RUN adduser -u 5678 --disabled-password --gecos "" app_etl && chown -R app_etl /app_etl
 USER app_etl
 
-CMD ["gunicorn", "--config", "gunicorn_config.py"]
+RUN chmod +x ./entrypoint.sh
+
+ENTRYPOINT [ "./entrypoint.sh" ]
