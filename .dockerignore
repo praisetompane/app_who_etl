@@ -2,7 +2,6 @@
 **/.venv
 **/.classpath
 **/.dockerignore
-**/.env
 **/.git
 **/.gitignore
 **/.project
@@ -26,3 +25,6 @@
 LICENSE
 README.md
 app_etl_data
+.mypy_cache
+.pytest_cache
+instance
