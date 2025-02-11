@@ -1,7 +1,9 @@
 # app_etl
 ![build status](https://github.com/praisetompane-toy-applications/app_etl/actions/workflows/app_etl.yaml/badge.svg)
 
-An API driven ETL program to extract data from World Health Organization.
+##  Objective:
+
+A toy API driven ETL program to extract data from World Health Organization.
 
 ## Supported Datasets:
 - Malaria Annual Confirmed Cases
@@ -41,28 +43,12 @@ An API driven ETL program to extract data from World Health Organization.
 
 ## Setup Instructions:
 - Install [Docker](https://docs.docker.com/get-started/)
-- The repository is configure to use Dev Containers for development.
-    - [containers.dev](https://containers.dev)
+- The repository is configured to use [devcontainers](https://containers.dev) for development.
     - [Developing inside a Container](https://code.visualstudio.com/docs/devcontainers/containers)
 
-## Package Management:
-- ### For non devcontainers usage:
-    - Install [Pipenv](https://pypi.org/project/pipenv/)
-
-    - Install packages into local environment using pipenv:
-        ```shell
-        pipenv install
-        ```
-
 ## Run Program:
-- ### For devcontainers usage:
-    - The system automatically start up as part of loading the project into an editor that supports devcontainers.
-- ### For non devcontainers usage:
-    - Uncomment the "ports" config AND comment out "network_mode: service:postgres_service" in [docker-compose](docker-compose.yml).
-    - Start the system
-        ```shell
-        ./start_system_development.sh
-        ```
+- The system automatically starts up as part of loading the project into an editor that supports devcontainers.
+    - If you wouuld like to run the prod image, change `dockerfile: Dockerfile.dev` to `dockerfile: Dockerfile` in [docker-compose](docker-compose.debug.yml).
 - Run an ETL
     ```shell
     # specifically imports malaria_annual_confirmed_cases
@@ -70,22 +56,12 @@ An API driven ETL program to extract data from World Health Organization.
     ```
 
 ## Testing:
-- ### For devcontainers usage:
-    - #### Run unit and integration tests:
-        ```shell
-        pytest
-        ```
-- ### For non devcontainers usage:
-    - #### Initialize a virtial environment
-        ```shell
-        pipenv shell
-        ```
-    - #### Run unit and integration tests:
-        ```shell
-        pytest
-        ```
-### end to end tests:
-- Unimplemented
+- ### Run unit and integration tests:
+    ```shell
+    pytest
+    ```
+- ### end to end tests:
+    - Not Implemented
 
 ## Debugging:
 - Running in debug mode and debug with VSCode:
@@ -96,6 +72,9 @@ An API driven ETL program to extract data from World Health Organization.
         ![bypass frozen modueles](./docs/vscode_debugging_frozen.png)
     - The server will inform you the host and port in the terminal output at the bottom.<br>
     - From here you debug like normal(i.e. add break points, step into code definitions, evaluate code snippets, etc) <br>
+
+- If you wouuld like to debug the prod image, change `dockerfile: Dockerfile.dev` to `dockerfile: Dockerfile` in [docker-compose.debug](docker-compose.debug.yml).
+
 
 ## Database State Management:
 
@@ -115,7 +94,7 @@ An API driven ETL program to extract data from World Health Organization.
     ```
 
 ## Git Conventions:
-- **NB:** the main is locked and all changes must come through a Pull Request.
+- **NB:** The main is locked and all changes must come through a Pull Request.
 - Commit Messages:
     - Provide concise commit messages that describe what you have done.
         ```shell

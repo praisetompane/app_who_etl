@@ -6,7 +6,7 @@ services:
       - .:/app_etl
     build:
       context: .
-      dockerfile: ./Dockerfile
+      dockerfile: Dockerfile.dev
     ports:
       - 8080:8080
       - 5678:5678

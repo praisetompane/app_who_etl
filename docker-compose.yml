@@ -5,7 +5,7 @@ services:
     volumes:
       - .:/app_etl
     build:
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.dev
     network_mode: service:postgres_service
     # if you want to edit outside a devcontainer,uncomment the "ports" config below AND comment out "network_mode: service:postgres_service"
     # ports:
