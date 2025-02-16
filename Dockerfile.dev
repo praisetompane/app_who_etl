@@ -13,6 +13,4 @@ RUN python -m pip install -r requirements.dev.txt
 RUN adduser -u 5678 --disabled-password --gecos "" app_etl && chown -R app_etl /app_etl
 USER app_etl
 
-RUN chmod +x ./entrypoint.sh
-
-ENTRYPOINT [ "./entrypoint.sh" ]
+CMD [ "flask", "run", "--debug" ]

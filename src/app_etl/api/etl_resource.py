@@ -3,46 +3,17 @@ import sys
 from logging import log
 from datetime import datetime
 from flask import Blueprint, Response, request, make_response
-from dotenv import dotenv_values
+from src.app_etl.repository.common import etl_repository
+from src.app_etl.etl.etl_register import etls
 
-from src.app_etl.etl.malaria_annual_confirmed_cases_etl import (
-    MalariaAnnualConfirmedCasesETL,
-)
 from src.app_etl.etl.runner import ETLRunner
-from src.app_etl.repository.malaria_annual_confirmed_cases_repository import (
-    MalariaAnnualConfirmedCasesRepository,
-)
 
-from src.app_etl.repository.etl_repository import ETLRepository
-from src.app_etl.repository.postgres.connection import PostgresConnection
-from src.app_etl.repository.postgres.postgres_configuration import PostgresConfiguration
 from logging import log
 
 logging.basicConfig(stream=sys.stdout, level=logging.INFO)
 
-config = dotenv_values(".env")
 
-
-postgres_config = PostgresConfiguration(
-    config["POSTGRES_SERVICE"],
-    config["POSTGRES_PORT"],
-    config["POSTGRES_DB"],
-    config["POSTGRES_USER"],
-    config["POSTGRES_PASSWORD"],
-)
-
-postgres_connection = PostgresConnection(postgres_config)
-malariaannualconfirmedcasesrepository = MalariaAnnualConfirmedCasesRepository(
-    postgres_connection
-)
-malaria_annual_confirmed_cases_etl = MalariaAnnualConfirmedCasesETL(
-    malariaannualconfirmedcasesrepository
-)
-
-etl_repository = ETLRepository(postgres_connection)
-etls = {"Malaria Annual Confirmed Cases": malaria_annual_confirmed_cases_etl}
 etl_runner = ETLRunner(etls)
-
 etl_api = Blueprint("etl_api", __name__)
 
 
@@ -60,7 +31,7 @@ def start() -> Response:
         etl_key = "etl_name"
         request_data = request.json
         if etl_key not in request_data.keys():
-            return "Incorrectly formed request", 422
+            return Response("Incorrectly formed request", 422)
 
         etl_id = etl_repository.save_etl(
             {"starttime": datetime.now(), "status": "Started"}
@@ -82,13 +53,14 @@ def start() -> Response:
                 "status": "Completed",
             }
         )
-        return {"etl_id": etl_id}, 201
+        return make_response({"etl_id": etl_id}, 201)
     else:
         log(logging.INFO, f"Received unsupported content type. Terminating request")
-        return "Content-Type not supported!"
-
+        return Response("Content-Type not supported!")
 
 # @etl_resource.route("/pause")
+
+
 def pause(etl_id):
     """
     allows pausing an etl
@@ -96,8 +68,9 @@ def pause(etl_id):
     """
     pass
 
-
 # @etl_resource.route("/resume")
+
+
 def resume(etl_id):
     """
     allows resuming an etl
@@ -105,8 +78,9 @@ def resume(etl_id):
     """
     pass
 
-
 # @etl_resource.route("/retry")
+
+
 def retry(etl_id):
     """
     allows retrying a failed etl
@@ -123,8 +97,9 @@ def retry(etl_id):
     """
     pass
 
-
 # @etl_resource.route("/etls")
+
+
 def retrieve_etls():
     """
     retrieve all ETLS

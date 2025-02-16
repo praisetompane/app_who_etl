@@ -34,6 +34,8 @@ def create_app(test_config=None) -> Flask:
 
 
 if __name__ == "__main__":
-    log(logging.INFO, "Starting up app_poker")
+    log(logging.INFO, "Starting up app_etl")
+
     app = create_app()
+
     app.run()
