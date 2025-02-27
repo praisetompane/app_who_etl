@@ -1,16 +1,16 @@
 # app_etl
 ![build status](https://github.com/praisetompane-toy-applications/app_etl/actions/workflows/app_etl.yaml/badge.svg)
 
-##  Objective:
+## Objectives
+- A toy API driven ETL application to experiment with the Flask(with gunicorn), SQLAlchemy, Alembic and Postgres.
+- Extract data from World Health Organization.
 
-A toy API driven ETL program to extract data from World Health Organization.
-
-## Supported Datasets:
+## Supported Datasets
 - Malaria Annual Confirmed Cases
 - ...
 
-## project structure:
-- docs: project documentation lives in here.
+## Project Structure
+- docs: Project documentation lives in here.
 - src: production code lives in folder and is divided in the modules below:
     - app_etl: project package
         - api:
@@ -41,12 +41,15 @@ A toy API driven ETL program to extract data from World Health Organization.
 
 - utilities: any useful scripts, such as curl & postman requests, JSON payloads, software installations, etc.
 
-## Setup Instructions:
+## Dependencies
+- [Docker](https://docs.docker.com/get-started/)
+
+## Setup Instructions
 - Install [Docker](https://docs.docker.com/get-started/)
 - The repository is configured to use [devcontainers](https://containers.dev) for development.
     - [Developing inside a Container](https://code.visualstudio.com/docs/devcontainers/containers)
 
-## Run Program:
+## Run Program
 - The system automatically starts up as part of loading the project into an editor that supports devcontainers.
     - If you wouuld like to run the prod image, change `dockerfile: Dockerfile.dev` to `dockerfile: Dockerfile` in [docker-compose](docker-compose.debug.yml).
 - Run an ETL
@@ -55,28 +58,27 @@ A toy API driven ETL program to extract data from World Health Organization.
     ./utilities/curl/malaria/malaria_annual_confirmed_cases.sh
     ```
 
-## Testing:
-- ### Run unit and integration tests:
+- Debugging
+    - Running in debug mode and debug with VSCode:
+        - Open the "Run and Debug" view.
+        - Click the green play button.<br>
+            ![start system output](./docs/vscode_debugging.png)<br>
+        - Allow debugging without frozen modules by clicking "Debug Anyway" once the debugger is installed and ready.
+            ![bypass frozen modueles](./docs/vscode_debugging_frozen.png)
+        - The server will inform you the host and port in the terminal output at the bottom.<br>
+        - From here you debug like normal(i.e. add break points, step into code definitions, evaluate code snippets, etc) <br>
+
+    - If you wouuld like to debug the prod image, change `dockerfile: Dockerfile.dev` to `dockerfile: Dockerfile` in [docker-compose.debug](docker-compose.debug.yml).
+
+## Testing
+- ### Run unit and integration tests
     ```shell
     pytest
     ```
-- ### end to end tests:
+- ### End to End tests
     - Not Implemented
 
-## Debugging:
-- Running in debug mode and debug with VSCode:
-    - Open the "Run and Debug" view.
-    - Click the green play button.<br>
-        ![start system output](./docs/vscode_debugging.png)<br>
-    - Allow debugging without frozen modules by clicking "Debug Anyway" once the debugger is installed and ready.
-        ![bypass frozen modueles](./docs/vscode_debugging_frozen.png)
-    - The server will inform you the host and port in the terminal output at the bottom.<br>
-    - From here you debug like normal(i.e. add break points, step into code definitions, evaluate code snippets, etc) <br>
-
-- If you wouuld like to debug the prod image, change `dockerfile: Dockerfile.dev` to `dockerfile: Dockerfile` in [docker-compose.debug](docker-compose.debug.yml).
-
-
-## Database State Management:
+## Database State Management
 
 - The database state (i.e. tables, stored procedures, indexes, etc) are managed using [Alembic](https://alembic.sqlalchemy.org/en/latest/).
     - Migrations location: src/app_etl/migrations
@@ -105,6 +107,5 @@ A toy API driven ETL program to extract data from World Health Organization.
     - references:
         - https://www.conventionalcommits.org/en/v1.0.0/
         - https://www.freecodecamp.org/news/how-to-write-better-git-commit-messages/
-## demo:
 
 **Disclaimer**: This is still work in progress.
