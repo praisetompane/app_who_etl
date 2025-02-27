@@ -1,13 +1,12 @@
 # app_etl
-![build status](https://github.com/praisetompane-toy-applications/app_etl/actions/workflows/app_etl.yaml/badge.svg)
+![build status](https://github.com/praisetompane/app_etl/actions/workflows/app_etl.yaml/badge.svg)
 
 ## Objectives
 - A toy API driven ETL application to experiment with the Flask(with gunicorn), SQLAlchemy, Alembic and Postgres.
 - Extract data from World Health Organization.
-
-## Supported Datasets
-- Malaria Annual Confirmed Cases
-- ...
+    - Supported Datasets
+        - Malaria Annual Confirmed Cases
+        - ...
 
 ## Project Structure
 - docs: Project documentation lives in here.
@@ -45,7 +44,6 @@
 - [Docker](https://docs.docker.com/get-started/)
 
 ## Setup Instructions
-- Install [Docker](https://docs.docker.com/get-started/)
 - The repository is configured to use [devcontainers](https://containers.dev) for development.
     - [Developing inside a Container](https://code.visualstudio.com/docs/devcontainers/containers)
 
@@ -57,7 +55,6 @@
     # specifically imports malaria_annual_confirmed_cases
     ./utilities/curl/malaria/malaria_annual_confirmed_cases.sh
     ```
-
 - Debugging
     - Running in debug mode and debug with VSCode:
         - Open the "Run and Debug" view.
@@ -71,11 +68,11 @@
     - If you wouuld like to debug the prod image, change `dockerfile: Dockerfile.dev` to `dockerfile: Dockerfile` in [docker-compose.debug](docker-compose.debug.yml).
 
 ## Testing
-- ### Run unit and integration tests
+- Run unit and integration tests
     ```shell
     pytest
     ```
-- ### End to End tests
+- Run End to End tests
     - Not Implemented
 
 ## Database State Management
@@ -95,7 +92,7 @@
     alembic downgrade base
     ```
 
-## Git Conventions:
+## Git Conventions
 - **NB:** The main is locked and all changes must come through a Pull Request.
 - Commit Messages:
     - Provide concise commit messages that describe what you have done.
