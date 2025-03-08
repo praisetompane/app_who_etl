@@ -17,7 +17,13 @@ services:
     entrypoint: ["sh", "-c", "pip install debugpy -t /tmp && python /tmp/debugpy --wait-for-client --listen 0.0.0.0:5678 -m flask run"]
     environment:
       - FLASK_APP=src/app_etl/app.py
-
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_PORT=${POSTGRES_PORT}
+      - PORT=${PORT}
+    env_file:
+      - .env
   postgres_service:
     extends:
       file: docker-compose-common.yml

@@ -2,7 +2,7 @@
 ![build status](https://github.com/praisetompane/app_etl/actions/workflows/app_etl.yaml/badge.svg)
 
 ## Objectives
-- A toy API driven ETL application to experiment with the Flask(with gunicorn), SQLAlchemy, Alembic and Postgres.
+- An API driven ETL application to experiment with the Flask(with gunicorn), SQLAlchemy, Alembic and Postgres.
 - Extract data from World Health Organization.
     - Supported Datasets
         - Malaria Annual Confirmed Cases

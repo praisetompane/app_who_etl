@@ -1,0 +1,1 @@
+curl 'https://appetl-production.up.railway.app:8080/app_etl/api/ping/'

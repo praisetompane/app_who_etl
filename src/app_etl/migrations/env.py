@@ -1,11 +1,6 @@
 from logging.config import fileConfig
-
 from sqlalchemy import create_engine
-
 from alembic import context
-
-from dotenv import dotenv_values
-from src.app_etl.repository.postgres.postgres_configuration import PostgresConfiguration
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
@@ -27,16 +22,8 @@ target_metadata = None
 # my_important_option = config.get_main_option("my_important_option")
 # ... etc.
 
-database_config = dotenv_values(".env")
 
-postgres_config = PostgresConfiguration(
-    database_config["POSTGRES_HOST"],
-    database_config["POSTGRES_PORT"],
-    database_config["POSTGRES_DB"],
-    database_config["POSTGRES_USER"],
-    database_config["POSTGRES_PASSWORD"],
-)
-
+from src.app_etl.repository.common import postgres_config
 
 def run_migrations_offline() -> None:
     """Run migrations in 'offline' mode.
