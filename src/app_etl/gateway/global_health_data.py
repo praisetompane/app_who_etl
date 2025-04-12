@@ -1,8 +1,12 @@
 import requests
+import logging
+from logging import log
 
-
-# TODO: add error handling for failure to invoke WHO GHO API
+#TODO: resumable downloads
 def retrieve_indicator_data(indicator_code):
-    url = f"https://ghoapi.azureedge.net/api/{indicator_code}"
-    request = requests.get(url)
-    return request.json()["value"]
+    try:
+        url = f"https://ghoapi.azureedge.net/api/{indicator_code}"
+        response = requests.get(url)
+        return response.json()["value"]
+    except Exception as e:
+        log(logging.ERROR, f"Failed to invoke WHO GHO API {e}")

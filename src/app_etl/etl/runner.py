@@ -5,7 +5,7 @@ from datetime import datetime
 
 
 class ETLRunner:
-    def __init__(self, etls: {str: ETLInterface} = None) -> None:
+    def __init__(self, etls: dict[str, ETLInterface] = None) -> None:
         self.etls = etls
 
     def run(self, etl_name: str, etl_id: int):

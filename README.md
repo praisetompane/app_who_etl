@@ -7,6 +7,8 @@
     - Supported Datasets
         - Malaria Annual Confirmed Cases
         - ...
+## Database
+![](docs/app_etl_erd.png)
 
 ## Project Structure
 - docs: Project documentation lives in here.
@@ -58,7 +60,7 @@
 - Debugging
     - Running in debug mode and debug with VSCode:
         - Open the "Run and Debug" view.
-        - Click the green play button.<br>
+        - Click the green play button.<br>  
             ![start system output](./docs/vscode_debugging.png)<br>
         - Allow debugging without frozen modules by clicking "Debug Anyway" once the debugger is installed and ready.
             ![bypass frozen modueles](./docs/vscode_debugging_frozen.png)
@@ -67,6 +69,8 @@
 
     - If you wouuld like to debug the prod image, change `dockerfile: Dockerfile.dev` to `dockerfile: Dockerfile` in [docker-compose.debug](docker-compose.debug.yml).
 
+- Connect to database:
+    - The database is accessible on `localhost` at the port and credentials specified in [env](.env).
 ## Testing
 - Run unit and integration tests
     ```shell
