@@ -1,4 +1,4 @@
-name: app_etl
+name: app_who_etl
 
 on: [push]
 

@@ -1,12 +1,20 @@
-# app_etl
-![build status](https://github.com/praisetompane/app_etl/actions/workflows/app_etl.yaml/badge.svg)
+# app_who_etl
+![build status](https://github.com/praisetompane/app_who_etl/actions/workflows/app_who_etl.yaml/badge.svg)
 
 ## Objectives
-- An API driven ETL application to experiment with the Flask(with gunicorn), SQLAlchemy, Alembic and Postgres.
+- An API driven ETL from WHO to experiment with the Flask(with gunicorn), SQLAlchemy, Alembic and Postgres. 
+
 - Extract data from World Health Organization.
     - Supported Datasets
         - Malaria Annual Confirmed Cases
         - ...
+## Database
+- Structure after first run <br>
+
+    ![](docs/app_who_etl_erd.png)
+
+- Connect to database
+    - The database is accessible on `localhost` at the port and credentials specified in [env](.env).
 
 ## Project Structure
 - docs: Project documentation lives in here.
@@ -58,7 +66,7 @@
 - Debugging
     - Running in debug mode and debug with VSCode:
         - Open the "Run and Debug" view.
-        - Click the green play button.<br>
+        - Click the green play button.<br>  
             ![start system output](./docs/vscode_debugging.png)<br>
         - Allow debugging without frozen modules by clicking "Debug Anyway" once the debugger is installed and ready.
             ![bypass frozen modueles](./docs/vscode_debugging_frozen.png)
