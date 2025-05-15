@@ -1,5 +1,5 @@
 from sqlalchemy import create_engine
-from src.app_etl.repository.postgres.postgres_configuration import PostgresConfiguration
+from src.app_who_etl.repository.postgres.postgres_configuration import PostgresConfiguration
 from sqlalchemy.engine import Engine, Connection
 
 

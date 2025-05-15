@@ -8,6 +8,7 @@
     - Supported Datasets
         - Malaria Annual Confirmed Cases
         - ...
+        
 ## Database
 - Structure after first run <br>
 
@@ -19,7 +20,7 @@
 ## Project Structure
 - docs: Project documentation lives in here.
 - src: production code lives in folder and is divided in the modules below:
-    - app_etl: project package
+    - app_who_etl: project package
         - api:
             - the API to the application lives in this module.
             - the current implementation is a REST API, but a gRPC, CLI API, etc would be implemented in here.
@@ -43,7 +44,7 @@
     - benefits:
         - tests can run against an installed version after executing `pip install .`.
         - tests can run against the local copy with an editable install after executing `pip install --edit`.
-        - when using Docker, the entire app_etl folder can be copied without needing to exclude tests, which we don't release to PROD.
+        - when using Docker, the entire app_who_etl folder can be copied without needing to exclude tests, which we don't release to PROD.
     - more in depth discussion here: https://docs.pytest.org/en/latest/explanation/goodpractices.html#choosing-a-test-layout-import-rules
 
 - utilities: any useful scripts, such as curl & postman requests, JSON payloads, software installations, etc.
@@ -86,7 +87,7 @@
 ## Database State Management
 
 - The database state (i.e. tables, stored procedures, indexes, etc) are managed using [Alembic](https://alembic.sqlalchemy.org/en/latest/).
-    - Migrations location: src/app_etl/migrations
+    - Migrations location: src/app_who_etl/migrations
     - Migrations naming scheme: YYYY_MM_DD_HHMM_rev_nanme
         - uses alembic's full revision scheme defined in alembic.ini
         - example: `2025_02_08_0825-98af2865f6fc_create_schema_etl`

@@ -10,7 +10,7 @@ threads = int(os.environ.get("GUNICORN_THREADS", "4"))
 port = os.environ.get("PORT")
 bind = os.environ.get("GUNICORN_BIND", f"0.0.0.0:{port}")
 
-wsgi_app = "src.app_etl.app:create_app()"
+wsgi_app = "src.app_who_etl.app:create_app()"
 
 forwarded_allow_ips = "*"
 

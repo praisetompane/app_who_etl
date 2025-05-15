@@ -3,8 +3,8 @@ import sys
 import os
 from logging import log
 from flask import Flask
-from src.app_etl.api.etl_resource import etl_api
-from src.app_etl.api.health_check_resource import health_check_api
+from src.app_who_etl.api.etl_resource import etl_api
+from src.app_who_etl.api.health_check_resource import health_check_api
 
 logging.basicConfig(stream=sys.stdout, level=logging.INFO)
 
@@ -12,8 +12,8 @@ logging.basicConfig(stream=sys.stdout, level=logging.INFO)
 def create_app(test_config=None) -> Flask:
     # create and configure the app
     app = Flask(__name__, instance_relative_config=True)
-    app.register_blueprint(etl_api, url_prefix="/app_etl/api")
-    app.register_blueprint(health_check_api, url_prefix="/app_etl/api")
+    app.register_blueprint(etl_api, url_prefix="/app_who_etl/api")
+    app.register_blueprint(health_check_api, url_prefix="/app_who_etl/api")
 
     app.config.from_mapping(
         SECRET_KEY="dev",
@@ -36,7 +36,7 @@ def create_app(test_config=None) -> Flask:
 
 
 if __name__ == "__main__":
-    log(logging.INFO, "Starting up app_etl")
+    log(logging.INFO, "Starting up app_who_etl")
 
     app = create_app()
 
