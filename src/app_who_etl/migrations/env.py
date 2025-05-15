@@ -23,7 +23,7 @@ target_metadata = None
 # ... etc.
 
 
-from src.app_etl.repository.common import postgres_config
+from src.app_who_etl.repository.common import postgres_config
 
 def run_migrations_offline() -> None:
     """Run migrations in 'offline' mode.

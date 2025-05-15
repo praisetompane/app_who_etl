@@ -1,20 +1,20 @@
 services:
-  app_etl:
+  app_who_etl:
     pull_policy: build
-    image: app_etl:latest
+    image: app_who_etl:latest
     volumes:
-      - .:/app_etl
+      - .:/app_who_etl
     build:
       dockerfile: Dockerfile.dev
-    # network_mode: service:postgres_service
-    # if you want to edit outside a devcontainer,uncomment the "ports" config below AND comment out "network_mode: service:postgres_service"
-    # ports:
+      # network_mode: service:app_who_etl_postgres_service
+      # if you want to edit outside a devcontainer,uncomment the "ports" config below AND comment out "network_mode: service:app_who_etl_postgres_service"
+      # ports:
       # - "8080:8080"
     depends_on:
-      postgres_service:
+      app_who_etl_postgres_service:
         condition: service_healthy
     environment:
-      - FLASK_APP=src/app_etl/app.py
+      - FLASK_APP=src/app_who_etl/app.py
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
       - POSTGRES_DB=${POSTGRES_DB}
@@ -22,7 +22,7 @@ services:
       - PORT=${PORT}
     env_file:
       - .env
-  postgres_service:
+  app_who_etl_postgres_service:
     extends:
       file: docker-compose-common.yml
-      service: postgres_service
+      service: app_who_etl_postgres_service

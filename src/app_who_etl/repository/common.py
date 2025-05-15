@@ -1,6 +1,6 @@
-from src.app_etl.repository.postgres.connection import PostgresConnection
-from src.app_etl.repository.postgres.postgres_configuration import PostgresConfiguration
-from src.app_etl.repository.etl_repository import ETLRepository
+from src.app_who_etl.repository.postgres.connection import PostgresConnection
+from src.app_who_etl.repository.postgres.postgres_configuration import PostgresConfiguration
+from src.app_who_etl.repository.etl_repository import ETLRepository
 import os
 
 

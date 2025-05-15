@@ -164,6 +164,6 @@ Docker.dmg
 
 # Postgres
 postgres_data
-app_etl_data
+app_who_etl_data
 
 .DS_Store

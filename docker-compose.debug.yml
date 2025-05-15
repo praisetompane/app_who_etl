@@ -1,9 +1,9 @@
 services:
-  app_etl:
+  app_who_etl:
     pull_policy: build
-    image: app_etl:latest
+    image: app_who_etl:latest
     volumes:
-      - .:/app_etl
+      - .:/app_who_etl
     build:
       context: .
       dockerfile: Dockerfile.dev
@@ -11,12 +11,12 @@ services:
       - 8080:8080
       - 5678:5678
     depends_on:
-      postgres_service:
+      app_who_etl_postgres_service:
         condition: service_healthy
     # This adds debugpy to the environment so you can debug the app
-    entrypoint: ["sh", "-c", "pip install debugpy -t /tmp && python /tmp/debugpy --wait-for-client --listen 0.0.0.0:5678 -m flask run"]
+    entrypoint: [ "sh", "-c", "pip install debugpy -t /tmp && python /tmp/debugpy --wait-for-client --listen 0.0.0.0:5678 -m flask run" ]
     environment:
-      - FLASK_APP=src/app_etl/app.py
+      - FLASK_APP=src/app_who_etl/app.py
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
       - POSTGRES_DB=${POSTGRES_DB}
@@ -24,7 +24,7 @@ services:
       - PORT=${PORT}
     env_file:
       - .env
-  postgres_service:
+  app_who_etl_postgres_service:
     extends:
       file: docker-compose-common.yml
-      service: postgres_service
+      service: app_who_etl_postgres_service
