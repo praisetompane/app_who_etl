@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/devcontainers/python:3.11
+FROM mcr.microsoft.com/devcontainers/python:3.13
 
 EXPOSE 8080
 
@@ -8,7 +8,10 @@ ENV PYTHONUNBUFFERED=1
 
 COPY . .
 
-RUN python -m pip install -r requirements.dev.txt
+RUN pipenv sync --system -d
+
+RUN apt-get update \
+    && apt-get install aspell -y
 
 RUN adduser -u 5678 --disabled-password --gecos "" app_who_etl && chown -R app_who_etl /app_who_etl
 USER app_who_etl

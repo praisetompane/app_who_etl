@@ -2,13 +2,13 @@
 ![build status](https://github.com/praisetompane/app_who_etl/actions/workflows/app_who_etl.yaml/badge.svg)
 
 ## Objectives
-- An API driven ETL from WHO to experiment with the Flask(with gunicorn), SQLAlchemy, Alembic and Postgres. 
+- An API driven ETL from WHO to experiment with the Flask(with gunicorn), SQLAlchemy, Alembic and Postgres.
 
 - Extract data from World Health Organization.
     - Supported Datasets
         - Malaria Annual Confirmed Cases
         - ...
-        
+
 ## Database
 - Structure after first run <br>
 
@@ -36,7 +36,7 @@
         - model:
             - The domain models for Poker live in this in this module.
         - repository:
-            - Data interactions(persitence and access) concerns live in this module.
+            - Data interactions(persistence and access) concerns live in this module.
         - app.py:
             entry point to startup the application
 - tests: test code lives in folder.
@@ -58,7 +58,7 @@
 
 ## Run Program
 - The system automatically starts up as part of loading the project into an editor that supports devcontainers.
-    - If you wouuld like to run the prod image, change `dockerfile: Dockerfile.dev` to `dockerfile: Dockerfile` in [docker-compose](docker-compose.debug.yml).
+    - If you would like to run the prod image, change `dockerfile: Dockerfile.dev` to `dockerfile: Dockerfile` in [docker-compose](docker-compose.debug.yml).
 - Run an ETL
     ```shell
     # specifically imports malaria_annual_confirmed_cases
@@ -67,14 +67,14 @@
 - Debugging
     - Running in debug mode and debug with VSCode:
         - Open the "Run and Debug" view.
-        - Click the green play button.<br>  
+        - Click the green play button.<br>
             ![start system output](./docs/vscode_debugging.png)<br>
         - Allow debugging without frozen modules by clicking "Debug Anyway" once the debugger is installed and ready.
-            ![bypass frozen modueles](./docs/vscode_debugging_frozen.png)
+            ![bypass frozen modules](./docs/vscode_debugging_frozen.png)
         - The server will inform you the host and port in the terminal output at the bottom.<br>
         - From here you debug like normal(i.e. add break points, step into code definitions, evaluate code snippets, etc) <br>
 
-    - If you wouuld like to debug the prod image, change `dockerfile: Dockerfile.dev` to `dockerfile: Dockerfile` in [docker-compose.debug](docker-compose.debug.yml).
+    - If you would like to debug the prod image, change `dockerfile: Dockerfile.dev` to `dockerfile: Dockerfile` in [docker-compose.debug](docker-compose.debug.yml).
 
 ## Testing
 - Run unit and integration tests
@@ -88,7 +88,7 @@
 
 - The database state (i.e. tables, stored procedures, indexes, etc) are managed using [Alembic](https://alembic.sqlalchemy.org/en/latest/).
     - Migrations location: src/app_who_etl/migrations
-    - Migrations naming scheme: YYYY_MM_DD_HHMM_rev_nanme
+    - Migrations naming scheme: YYYY_MM_DD_HHMM_rev_name
         - uses alembic's full revision scheme defined in alembic.ini
         - example: `2025_02_08_0825-98af2865f6fc_create_schema_etl`
     - Current database state can be queried with `SELECT * FROM public.alembic_version;`
@@ -109,7 +109,7 @@
         # example:
         git commit -m "feat(core): algorithm" -m"implement my new shiny faster algorithm"
         ```
-    - screen shot of Githb view
+    - screen shot of GitHub view
     - references:
         - https://www.conventionalcommits.org/en/v1.0.0/
         - https://www.freecodecamp.org/news/how-to-write-better-git-commit-messages/

@@ -58,6 +58,7 @@ def start() -> Response:
         log(logging.INFO, f"Received unsupported content type. Terminating request")
         return Response("Content-Type not supported!")
 
+
 # @etl_resource.route("/pause")
 
 
@@ -68,6 +69,7 @@ def pause(etl_id):
     """
     pass
 
+
 # @etl_resource.route("/resume")
 
 
@@ -77,6 +79,7 @@ def resume(etl_id):
     @param etl_id: int
     """
     pass
+
 
 # @etl_resource.route("/retry")
 
@@ -96,6 +99,7 @@ def retry(etl_id):
 
     """
     pass
+
 
 # @etl_resource.route("/etls")
 

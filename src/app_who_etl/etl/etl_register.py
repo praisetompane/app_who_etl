@@ -9,7 +9,8 @@ from src.app_who_etl.repository.common import postgres_connection
 
 
 malaria_annual_confirmed_cases_etl = MalariaAnnualConfirmedCasesETL(
-    MalariaAnnualConfirmedCasesRepository(postgres_connection))
+    MalariaAnnualConfirmedCasesRepository(postgres_connection)
+)
 
 """
     Registry of supported ETLs.
