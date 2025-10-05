@@ -1,0 +1,13 @@
+matrix:
+  - name: All Files
+    aspell:
+      lang: en
+      ignore-case: false
+    dictionary:
+      wordlists:
+        - .spellcheck_exceptions_dictionary.txt
+      encoding: utf-8
+    sources:
+      - "**/*.md"
+      - "**/*.txt"
+    default_encoding: utf-8

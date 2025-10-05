@@ -75,10 +75,10 @@ class MalariaAnnualConfirmedCasesETL(ETLInterface):
         """
         """
             TODO:
-            - what shoud we do with null values? 
+            - what shoud we do with null values?
                 there are some fields(region) that have nulls:
                 - do we exclude the whole record?
-                - use an appropriate default?   
+                - use an appropriate default?
 
             NB: check all of them and decide sensible rules.
 

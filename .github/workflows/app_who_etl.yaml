@@ -1,24 +1,36 @@
 name: app_who_etl
 
-on: [push]
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ["3.11.2"]
+        python-version: ["3.13"]
     steps:
-      - uses: actions/checkout@v4
+      - name: Clone Repository
+        uses: actions/checkout@v4
+
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
-      - name: Test with pytest
-        run: |
-          pip install pytest
-          pytest
+
+      - name: Install pipenv
+        run: python -m pip install pipenv
+
+      - name: Install Dependencies
+        run: pipenv install --system -d
+
+      - name: Run Test
+        run: pytest
+
+      - name: Spell Check
+        uses: rojopolis/spellcheck-github-actions@0.45.0
+        with:
+          output_file: spellcheck-output.txt
